@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"--> 
+    <title>MasterBox</title>
+    
+    <!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <!--===============================================================================================-->	
+        <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->	
+        <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="css/util.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <script src="js/sweetalert2@10.js"></script>
+    <!--===============================================================================================-->
+
+</head>
+<body>
+
+    <div class="limiter">
+		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+			<div class="wrap-login100 p-t-30 p-b-50">
+				<span class="login100-form-title p-b-41">
+					Ingreso de Cuenta
+				</span>
+				<form class="login100-form validate-form p-b-33 p-t-5">
+
+					<div class="wrap-input100 validate-input" data-validate = "Ingresa tu usuario">
+						<input class="input100" type="text" id="txtEmail" name="txtEmail" placeholder="Usuario">
+						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Ingresa tu contraseña">
+						<input class="input100" type="password" id="txtPass" name="txtPass" placeholder="Contraseña">
+						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
+					</div>
+
+					<div class="container-login100-form-btn m-t-32">
+						<input type="button" class="login100-form-btn logIn" value="Ingresa">
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.logIn').click(logIn);
+            $("#txtEmail").keypress(function(event){
+                var keycode = (event.keyCode ? event.keyCode : event.which);
+                if(keycode == '13'){
+                    logIn();
+                }
+            }); 
+            $("#txtPass").keypress(function(event){
+                var keycode = (event.keyCode ? event.keyCode : event.which);
+                if(keycode == '13'){
+                    logIn();
+                }
+            }); 
+        });
+
+        function logIn(){
+            var email = $("input[id=txtEmail]").val();
+            var pass  = $("input[id=txtPass]").val();
+
+            if(email == ""){
+                Swal.fire({
+                    title: '<br>Ingrese un usuario !!',
+                    confirmButtonText: 'OK',
+                });
+                return false;
+            }
+
+            if(pass == ""){
+                Swal.fire({
+                    title: '<br>Ingrese una contraseña !!',
+                    confirmButtonText: 'OK',
+                });
+                return false;
+            }
+
+            $.ajax({
+                type: "GET",
+                url: 'controllers/dashboard.controller.php',
+                data: 'accion=consultarUsuario&v1=' + email + '&v2=' + pass,
+                dataType: 'JSON',
+                success: function(data){
+                    if(data.response==200){
+                        //console.log(data);
+                        window.open("default.php","_self");
+                    }else{
+                        Swal.fire({
+                            title: '<br>' + data.mensaje,
+                            confirmButtonText: 'OK',
+                        });
+                        return false;
+                    }
+            }
+            });
+
+            return true;
+        }
+    </script>
+
+    <!--===============================================================================================-->
+	<!--script src="vendor/jquery/jquery-3.2.1.min.js"></script-->
+    <!--===============================================================================================-->
+        <script src="vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+        <script src="vendor/bootstrap/js/popper.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+        <script src="vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+        <script src="vendor/daterangepicker/moment.min.js"></script>
+        <script src="vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+        <script src="vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+        <script src="js/main-login.js"></script>
+    
+</body>
+</html>

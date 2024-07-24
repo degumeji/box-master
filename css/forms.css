@@ -1,0 +1,92 @@
+/* https://bootstrapdocs.com/v3.3.5/docs/css/ */
+  .swal-wide {
+    width: 22% !important;
+    height: 73% !important;
+    font-size: 15px !important;
+  }
+  .txtArea{
+    width: 100% !important;
+    height: 10% !important;
+  }
+  .btn {
+    width: 76%;
+  }
+  .tabla{
+    width: 60%; 
+    margin-top: 2%;
+  }
+  .form-inline .form-group {
+    margin-right:9%;
+  }
+  #cbxRespuestaCorrecta{
+    width: 126%;
+  }
+  
+  #txtValor{
+    width: 126%;
+  }
+  #txtEstado{
+    width: 163%;
+  }
+  .espacioFinal{
+    margin-bottom: 3%;
+  }
+  .espacioFinal2{
+    margin-bottom: 0%;
+  }
+  .h1Central{
+    text-align: center;
+    margin-left: 0%;
+  }
+  #txtId{
+    width: 100%;
+    margin-bottom: 2%;
+  }
+  #cbxTipoPregunta{
+    width: 100%;
+  }
+  .texto{
+    margin-top: 3px;
+  }
+  .contenedorLabel{
+    margin-top: -2%;
+  }
+  @media only screen and (max-width: 600px) {
+    .formulario{ width: 100% !important;}
+    .swal-wide {width: 74% !important; height: 30% !important;font-size: 13px !important;}
+    .txtArea{
+        width: 100% !important;
+        height: 6% !important;
+    }
+    .tabla{
+        width: 100%; 
+        margin-top: 2%;
+        margin-left: 0%;
+    }
+    .btn {
+        width: 76%;
+    }
+    .h1Central{
+        text-align: center;
+        margin-left: 0%;
+    }
+    #cbxRespuestaCorrecta{
+        width: 109% !important;
+    }
+  
+    #txtValor{
+        width: 109% !important;
+    }
+    #txtEstado{
+        width: 109% !important;
+    }
+    .espacioFinal{
+        margin-bottom: 0%;
+    }
+    .espacioFinal2{
+        margin-bottom: 57%;
+    }
+  }
+  
+  
+  
