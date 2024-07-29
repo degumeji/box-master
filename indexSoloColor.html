@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        h1{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>TITULO</h1>    
+    <label for="txtEmail">email:</label>
+    <input type="email" name="txtEmail" id="txtEmail">
+    <br>
+    <label for="txtPassEmail">Password:</label>
+    <input type="password" name="txtPassEmail" id="txtPassEmail">
+    <br>
+    <input type="checkbox" name="chkSesion" id="chkSesion">Mantener sesion
+    <br>
+    <a href="indexSolo2Color.html">Has olvidado tu contraseña?</a>
+    <br>
+    <input type="button" id="btnEnviar" value="Ingresar">
+    <script>
+        $(document).ready(function(){
+            $("#btnEnviar").click(Ingresar);
+        });
+
+        function Ingresar(){
+            alert("Ingresó");
+            return true;
+        }
+    </script>
+</body>
+</html>
